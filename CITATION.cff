@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this process, please cite it and acknowledge it as required by LICENSE.md."
+authors:
+  - family-names: Malikian
+    given-names: Raphael
+    orcid: https://orcid.org/0009-0008-4326-4205
+    email: rtmalikian@gmail.com
+title: "Multi-Agent Cochrane-Level Review Process (Robust Standard v2)"
+version: 1.0.0
+date-released: 2026-11-01
+url: https://github.com/rtmalikian/multi-agent-cochrane-level-review-process
+license: LicenseRef-Malikian-Attribution-NonCommercial-1.0
+keywords:
+  - systematic review
+  - meta-analysis
+  - cochrane
+  - multi-agent
+  - llm
+  - evidence synthesis
+  - prisma
+  - grade

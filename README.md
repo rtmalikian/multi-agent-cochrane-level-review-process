@@ -18,6 +18,22 @@ It is the process that produced three published reviews in October 2026 (ambient
 
 > These are Cochrane-**level** reviews. They are **not** Cochrane reviews and are not submitted to Cochrane (Cochrane requires at least two authors). This process never lets you claim otherwise.
 
+## Agreement and adjudication — reported, not just promised
+
+Dual screening and dual extraction are only assessable if the agreement numbers and the adjudication method are reported, so Rules 3–5 and 11 make them a reporting requirement:
+
+- **Screening:** two independent passes apart, agreement and Cohen's kappa computed by code and reported. Every disagreement is settled by an adjudicator re-reading the record — a coded rule may triage, it may never exclude or settle.
+- **Extraction:** two fully independent passes, merged field by field by code, with the discrepancy count and rate per field reported. Every discrepancy is settled by a third reading of the source.
+- **Risk of bias:** assessed in duplicate, with disagreements settled by reading — never by a mechanical rule such as taking the more cautious judgement.
+
+Reported in the worked examples:
+
+- **Review 1 — Ambient AI scribes:** screening agreement **0.77**, kappa **0.64**.
+- **Review 3 — Errors in LLM clinical summaries:** kappa **0.62**; extraction **374 field pairs, 161 raw discrepancies (43%, mostly format), 6 substantive** — all settled by re-reading.
+- **Review 2 is why the rule is written this way:** v1 used a coded screening adjudication rule and one extraction plus verification. The audit named both as step-downs, v2 bans both, and the corrected version was re-issued on every platform with the amendment logged.
+
+Full details per review: [`examples/WORKED_EXAMPLES.md`](examples/WORKED_EXAMPLES.md).
+
 ## Start here — the prompt
 
 **👉 [`EXAMPLE_MULTI_STEP_PROMPT.md`](EXAMPLE_MULTI_STEP_PROMPT.md)** — the full 12-step prompt (Step 0 master instruction + one prompt per stage, plus a one-paragraph short version).

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multi-Agent Cochrane-Level Review Process (Robust Standard v2) | Methods Papers</title>
+<link rel="canonical" href="https://rtmalikian.github.io/multi-agent-cochrane-level-review-process/">
+<meta name="description" content="Multi-Agent Cochrane-Level Review Process (Robust Standard v2). One accountable human author. A team of AI agents. Cochrane-level rigour, built in the open. By Raphael Malikian.">
+<meta name="citation_title" content="Multi-Agent Cochrane-Level Review Process (Robust Standard v2)">
+<meta name="citation_author" content="Malikian, Raphael">
+<meta name="citation_publication_date" content="2026/11/01">
+
+
+<meta name="citation_publisher" content="Zenodo">
+<meta name="citation_language" content="en">
+<meta name="citation_keyword" content="systematic review">
+<meta name="citation_keyword" content="meta-analysis">
+<meta name="citation_keyword" content="cochrane">
+<meta name="citation_keyword" content="multi-agent">
+<meta name="citation_keyword" content="llm">
+<meta name="citation_keyword" content="evidence synthesis">
+<meta name="citation_keyword" content="prisma">
+<meta name="citation_keyword" content="grade">
+<meta name="DC.title" content="Multi-Agent Cochrane-Level Review Process (Robust Standard v2)">
+<meta name="DC.creator" content="Raphael Malikian">
+<meta name="DC.date" content="2026-11-01">
+<meta name="DC.identifier" content="https://rtmalikian.github.io/multi-agent-cochrane-level-review-process/">
+<meta name="DC.type" content="Text">
+<meta name="DC.rights" content="Malikian Attribution — Non-Commercial Licence v1.0">
+<meta property="og:title" content="Multi-Agent Cochrane-Level Review Process (Robust Standard v2)">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rtmalikian.github.io/multi-agent-cochrane-level-review-process/">
+<meta name="twitter:card" content="summary">
+<style>
+:root{--navy:#14406e;--navy2:#1d5aa8;--ink:#1a1a1a;--mut:#5c6670;--line:#d9dee4;
+--rule:#9aa7b4;--panel:#f7f9fb;--boxbg:#fbfbf8}
+*{box-sizing:border-box}
+body{margin:0;font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:#fff;line-height:1.6}
+.wrap{max-width:1200px;margin:0 auto;padding:0 22px}
+a{color:var(--navy2)}
+/* --- journal masthead --- */
+.masthead{border-top:5px solid var(--navy);border-bottom:1px solid var(--ink);padding:20px 0 14px}
+.wordmark{font-size:37px;font-weight:bold;letter-spacing:.01em;color:#0e2a47;line-height:1.05}
+.mast-sub{font-family:Helvetica,Arial,sans-serif;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--mut);margin-top:5px}
+.journalnav{border-bottom:1px solid var(--line)}
+.journalnav .wrap{display:flex;gap:26px;padding-top:8px;padding-bottom:8px}
+.journalnav a{font-family:Helvetica,Arial,sans-serif;font-size:13px;font-weight:bold;letter-spacing:.06em;text-transform:uppercase;color:#24313d;text-decoration:none}
+.journalnav a:hover{color:var(--navy2);text-decoration:underline}
+/* --- breadcrumb / type --- */
+.crumb{font-family:Helvetica,Arial,sans-serif;font-size:12.5px;color:var(--mut);margin:18px 0 0}
+.crumb a{color:var(--mut);text-decoration:none} .crumb a:hover{text-decoration:underline}
+.typerow{display:flex;align-items:center;gap:12px;margin:10px 0 0;flex-wrap:wrap}
+.arttype{font-family:Helvetica,Arial,sans-serif;font-size:13px;font-weight:bold;letter-spacing:.13em;text-transform:uppercase;color:var(--navy)}
+.oa{font-family:Helvetica,Arial,sans-serif;font-size:11.5px;font-weight:bold;letter-spacing:.08em;text-transform:uppercase;color:#14632d;border:1px solid #14632d;border-radius:3px;padding:2px 8px}
+/* --- article header --- */
+.article-head{border-bottom:2px solid var(--ink);padding-bottom:16px}
+h1{font-size:33px;line-height:1.22;margin:14px 0 8px;color:#101c28;font-weight:bold}
+.standfirst{font-size:17.5px;color:#3c4753;margin:0 0 18px}
+.authors{font-size:17px;margin:0 0 3px}
+.authors sup{font-size:11px}
+.affil{font-size:14px;color:#3c4753;margin:0 0 3px}
+.corr{font-size:14px;color:#3c4753;margin:0 0 12px}
+.publine{font-family:Helvetica,Arial,sans-serif;font-size:13.5px;color:#24313d;margin:0 0 5px}
+.citeline{font-size:14.5px;color:#24313d;margin:0}
+/* --- action row --- */
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 4px}
+.actions a,.actions button{font-family:Helvetica,Arial,sans-serif;font-size:13.5px;font-weight:bold;text-decoration:none;border:1px solid var(--navy);border-radius:3px;padding:8px 16px;color:var(--navy);background:#fff;cursor:pointer}
+.actions a.primary{background:var(--navy);color:#fff}
+.actions a:hover,.actions button:hover{background:#e8eef5}
+.actions a.primary:hover{background:var(--navy2)}
+/* --- layout --- */
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:40px;margin-top:22px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+/* --- article body --- */
+article h2{font-size:21px;color:#101c28;border-bottom:1px solid var(--rule);padding-bottom:5px;margin:36px 0 12px}
+article h2 .secno{color:var(--navy)}
+article h3{font-size:17px;color:#101c28;margin:26px 0 8px}
+article h4{font-size:15px;color:#101c28;margin:20px 0 6px}
+article p{margin:0 0 11px}
+article table{border-collapse:collapse;width:100%;font-size:13px;margin:16px 0;line-height:1.45}
+article th{background:none;color:var(--ink);text-align:left;font-weight:bold;padding:6px 8px;border-top:2.5px solid #101c28;border-bottom:1px solid #101c28}
+article td{border:none;padding:5px 8px;vertical-align:top}
+article tbody tr:last-child td{border-bottom:2.5px solid #101c28}
+article figure{margin:22px 0}
+article figure img{max-width:100%;border:1px solid var(--line)}
+article figcaption{font-size:13.5px;color:#24313d;margin-top:7px;font-family:Helvetica,Arial,sans-serif;line-height:1.5}
+.abstract-panel{background:var(--panel);border:1px solid var(--line);padding:16px 22px 8px;margin:4px 0 10px}
+.abstract-panel h2{border:none;font-size:14px;letter-spacing:.13em;text-transform:uppercase;color:var(--navy);margin:0 0 10px;padding:0;font-family:Helvetica,Arial,sans-serif}
+.keyfindings{background:var(--boxbg);border:1px solid var(--line);border-top:3px solid var(--navy);padding:13px 20px 5px;margin:20px 0}
+.keyfindings h2{border:none;font-size:13.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);margin:0 0 8px;padding:0;font-family:Helvetica,Arial,sans-serif}
+.keyfindings ul{margin:4px 0 10px;padding-left:20px} .keyfindings li{margin-bottom:6px}
+ol.refs{padding-left:0;list-style-position:outside;margin-left:2.1em}
+ol.refs li{margin-bottom:7px;padding-left:.4em}
+/* --- sidebar rail --- */
+aside .box{border:1px solid var(--line);background:#fff;padding:14px 16px;margin-bottom:18px}
+aside h3{margin:0 0 9px;font-size:13px;font-family:Helvetica,Arial,sans-serif;text-transform:uppercase;letter-spacing:.07em;color:var(--navy);border-bottom:1px solid var(--line);padding-bottom:6px}
+aside p,aside li{font-size:13.5px}
+aside ul{margin:6px 0;padding-left:18px}
+aside ul.contents{list-style:none;padding-left:0} aside ul.contents li{margin-bottom:5px}
+aside ul.contents a{color:#24313d;text-decoration:none} aside ul.contents a:hover{text-decoration:underline;color:var(--navy2)}
+.dl a.btn{display:block;background:var(--navy);color:#fff;text-align:center;padding:10px;border-radius:3px;text-decoration:none;font-family:Helvetica,Arial,sans-serif;font-weight:bold;margin-bottom:8px}
+.dl a.btn:hover{background:var(--navy2)}
+.dl a.alt{background:#fff;color:var(--navy);border:1px solid var(--navy);font-weight:normal}
+.dl p{color:var(--mut);margin:6px 0 0}
+pre{white-space:pre-wrap;font-size:11px;background:#f6f4ef;padding:8px;line-height:1.4}
+button.copy{font-size:12px;cursor:pointer}
+/* --- footer --- */
+footer{border-top:2px solid var(--ink);margin-top:44px;padding:16px 0 36px;font-size:13.5px;color:#3c4753}
+footer .seriesline{font-family:Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--mut);margin-top:10px}
+@media print{
+ .masthead .journalnav,.crumb,.actions,aside,button.copy{display:none}
+ .grid{grid-template-columns:1fr}
+ body{font-size:11pt;line-height:1.5} a{color:#000;text-decoration:none}
+ article h2{break-after:avoid} article table,article figure{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="masthead"><div class="wrap">
+<div class="wordmark">Methods Papers</div>
+<div class="mast-sub">Raphael Malikian · Cochrane-Level Evidence Syntheses</div>
+</div></div>
+<nav class="journalnav"><div class="wrap">
+<a href="https://rtmalikian.github.io/systematic-reviews/#reviews">Browse</a>
+<a href="https://rtmalikian.github.io/systematic-reviews/#method">About</a>
+<a href="https://rtmalikian.github.io/systematic-reviews/">Systematic Reviews Hub</a>
+<a href="https://github.com/rtmalikian/multi-agent-cochrane-level-review-process">GitHub</a>
+</div></nav>
+<div class="wrap">
+<p class="crumb"><a href="https://rtmalikian.github.io/systematic-reviews/">Systematic Reviews Hub</a> &rsaquo; Research Methods &rsaquo; Methods Paper</p>
+<div class="typerow"><span class="arttype">Methods Paper</span><span class="oa">Open Access</span></div>
+<header class="article-head">
+<h1>Multi-Agent Cochrane-Level Review Process (Robust Standard v2)</h1>
+<p class="standfirst">One accountable human author. A team of AI agents. Cochrane-level rigour, built in the open.</p>
+<p class="authors"><strong>Raphael Malikian</strong><sup>1</sup></p>
+<p class="affil"><sup>1</sup> Independent Researcher, Palmdale, CA, USA</p>
+<p class="corr">Corresponding author: Raphael Malikian, <a href="mailto:rtmalikian@gmail.com">rtmalikian@gmail.com</a> · ORCID <a href="https://orcid.org/0009-0008-4326-4205">0009-0008-4326-4205</a></p>
+<p class="publine">Published: 1 November 2026 &middot; Version 1.0.0</p>
+<p class="citeline">Malikian R. Multi-Agent Cochrane-Level Review Process (Robust Standard v2). Version 1.0.0; 2026. Available at: <a href="https://rtmalikian.github.io/multi-agent-cochrane-level-review-process/">https://rtmalikian.github.io/multi-agent-cochrane-level-review-process/</a></p>
+</header>
+<div class="actions">
+<a class="primary" href="https://github.com/rtmalikian/multi-agent-cochrane-level-review-process">View on GitHub</a>
+<button type="button" onclick="window.print()">Print</button>
+<a href="#cite">Cite</a>
+<a href="https://twitter.com/intent/tweet?text=Multi-Agent%20Cochrane-Level%20Review%20Process%20(Robust%20Standard%20v2)&url=https://rtmalikian.github.io/multi-agent-cochrane-level-review-process/" target="_blank" rel="noopener">Share</a>
+</div>
+<div class="grid">
+<article>
+<section class="abstract-panel">
+<h2 id="abstract">Abstract</h2>
+<p>A complete, reusable process for producing a Cochrane-level systematic review and meta-analysis using a multi-agent LLM team in place of a human research team, with one named human author accountable for every judgement and every number. The process specifies dual independent screening and extraction with adjudication by reading, statistics checked two ways, figures visually inspected before shipping, and full reporting of agreement and discrepancy numbers. It is the process that produced three published reviews in October 2026 (ambient AI scribes; LLM citation fabrication; errors in LLM clinical summaries). These are Cochrane-level reviews, not Cochrane reviews.</p>
+</section>
+<h3 id="one-accountable-human-author-a-team-of-ai-agents-cochrane-level-rigour-built-in-the-open">One accountable human author. A team of AI agents. Cochrane-level rigour, built in the open.</h3>
+<p><a href="LICENSE.md"><img alt="Licence: Attribution — Non-Commercial" src="https://img.shields.io/badge/Licence-Attribution--NonCommercial-orange" /></a>
+<a href="#worked-examples--three-published-reviews"><img alt="Reviews built with this process: 3" src="https://img.shields.io/badge/Reviews%20built-3-brightgreen" /></a>
+<a href="https://rtmalikian.github.io/systematic-reviews/"><img alt="Hub: Systematic Reviews" src="https://img.shields.io/badge/Hub-Systematic%20Reviews-blue" /></a></p>
+<p><strong>By Raphael Malikian</strong> — independent researcher, healthcare founder and operator who bootstrapped and ran a direct primary care clinic as CEO, now building clinical AI. ORCID <a href="https://orcid.org/0009-0008-4326-4205">0009-0008-4326-4205</a> · rtmalikian@gmail.com · GitHub <a href="https://github.com/rtmalikian">@rtmalikian</a> · X <a href="https://x.com/rtmalikian">@rtmalikian</a></p>
+<hr />
+<h2 id="what-this-is">What this is</h2>
+<p>A complete, reusable process for producing a <strong>Cochrane-level systematic review and meta-analysis using a multi-agent LLM team in place of a human research team</strong> — with one named human author accountable for every judgement and every number.</p>
+<p>It is the process that produced three published reviews in October 2026 (ambient AI scribes; LLM citation fabrication; errors in LLM clinical summaries — links below). This repository open-sources the process itself: the standard, the team structure, the independence rules, the templates, and a <strong>copy-paste multi-step prompt</strong> you can give your own AI agents.</p>
+<blockquote>
+<p>These are Cochrane-<strong>level</strong> reviews. They are <strong>not</strong> Cochrane reviews and are not submitted to Cochrane (Cochrane requires at least two authors). This process never lets you claim otherwise.</p>
+</blockquote>
+<h2 id="agreement-and-adjudication-reported-not-just-promised">Agreement and adjudication — reported, not just promised</h2>
+<p>Dual screening and dual extraction are only assessable if the agreement numbers and the adjudication method are reported, so Rules 3–5 and 11 make them a reporting requirement:</p>
+<ul>
+<li><strong>Screening:</strong> two independent passes apart, agreement and Cohen's kappa computed by code and reported. Every disagreement is settled by an adjudicator re-reading the record — a coded rule may triage, it may never exclude or settle.</li>
+<li><strong>Extraction:</strong> two fully independent passes, merged field by field by code, with the discrepancy count and rate per field reported. Every discrepancy is settled by a third reading of the source.</li>
+<li><strong>Risk of bias:</strong> assessed in duplicate, with disagreements settled by reading — never by a mechanical rule such as taking the more cautious judgement.</li>
+</ul>
+<p>Reported in the worked examples:</p>
+<ul>
+<li><strong>Review 1 — Ambient AI scribes:</strong> screening agreement <strong>0.77</strong>, kappa <strong>0.64</strong>.</li>
+<li><strong>Review 3 — Errors in LLM clinical summaries:</strong> kappa <strong>0.62</strong>; extraction <strong>374 field pairs, 161 raw discrepancies (43%, mostly format), 6 substantive</strong> — all settled by re-reading.</li>
+<li><strong>Review 2 is why the rule is written this way:</strong> v1 used a coded screening adjudication rule and one extraction plus verification. The audit named both as step-downs, v2 bans both, and the corrected version was re-issued on every platform with the amendment logged.</li>
+</ul>
+<p>Full details per review: <a href="examples/WORKED_EXAMPLES.md"><code>examples/WORKED_EXAMPLES.md</code></a>.</p>
+<h2 id="start-here-the-prompt">Start here — the prompt</h2>
+<p><strong>👉 <a href="EXAMPLE_MULTI_STEP_PROMPT.md"><code>EXAMPLE_MULTI_STEP_PROMPT.md</code></a></strong> — the full 12-step prompt (Step 0 master instruction + one prompt per stage, plus a one-paragraph short version).</p>
+<p>Copy Step 0, fill in your topic, question and — most importantly — your <strong>primary outcome with its denominator</strong>, then work through the steps <strong>one at a time</strong>, checking the files each step produces before authorising the next.</p>
+<p>Individual stage prompts also live in <a href="prompts/"><code>prompts/</code></a> if you coordinate separate chat sessions by hand. Blank forms live in <a href="templates/"><code>templates/</code></a>.</p>
+<h2 id="the-team">The team</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Does</th>
+<th>Independence rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Information specialist</td>
+<td>Strings, full retrieval, search log</td>
+<td>Logs searched / partial / blocked / not run honestly</td>
+</tr>
+<tr>
+<td>Screener A &amp; Screener B</td>
+<td>Title/abstract screening</td>
+<td>Separate sessions, different decision procedures, no sight of each other</td>
+</tr>
+<tr>
+<td>Screening adjudicator</td>
+<td>Settles every disagreement</td>
+<td>By re-reading — never by a coded rule</td>
+</tr>
+<tr>
+<td>Extractor A &amp; Extractor B</td>
+<td>Full extraction from full texts</td>
+<td>Separate sessions; sheets merged field by field by code</td>
+</tr>
+<tr>
+<td>Settlement reader</td>
+<td>Settles extraction discrepancies</td>
+<td>By a third reading of the source, per field</td>
+</tr>
+<tr>
+<td>Risk-of-bias pair + adjudicator</td>
+<td>RoB 2 / ROBINS-I / QUADAS-2 or a pre-specified adapted tool</td>
+<td>Disagreements settled by reading, never "take the more cautious"</td>
+</tr>
+<tr>
+<td>Statistician</td>
+<td>Random-effects synthesis</td>
+<td>Hand-checks one pool in full + crude totals of every pool, by a second route</td>
+</tr>
+<tr>
+<td>GRADE assessor</td>
+<td>Certainty per critical outcome</td>
+<td>Downgrade reasons named per outcome</td>
+</tr>
+<tr>
+<td>Methods editor</td>
+<td>Protocol-vs-review differences, reporting checks</td>
+<td>PRISMA 2020 + PRISMA-S</td>
+</tr>
+<tr>
+<td>Visual QA pass</td>
+<td>Renders and inspects every figure/table page</td>
+<td>A failed build does not ship</td>
+</tr>
+<tr>
+<td><strong>Human author</strong></td>
+<td><strong>Question, flagged items, final sign-off</strong></td>
+<td><strong>Accountable for every number</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-robust-standard-v2-12-non-negotiables">The Robust Standard v2 — 12 non-negotiables</h2>
+<ol>
+<li><strong>Protocol first</strong> — dated, outcomes and denominators fixed in advance, PROSPERO-ready form prepared before screening. No registration number is ever backdated or implied.</li>
+<li><strong>Search, full retrieval</strong> — a test page or capped sample never counts as searched. Blocked sources retried twice, by a second route where one exists. Licensed databases with no access are listed as not run, with ready strings.</li>
+<li><strong>Dual independent screening</strong> — two passes apart, agreement and Cohen's kappa computed by code and explained.</li>
+<li><strong>Real adjudication, never a coded rule as the final word</strong> — a rule may triage; it may not exclude or settle.</li>
+<li><strong>Two fully independent extractions</strong> — field-by-field merge, discrepancy rate per field reported, every discrepancy settled by re-reading.</li>
+<li><strong>Risk of bias in duplicate, adjudicated by reading</strong> — never by a mechanical rule.</li>
+<li><strong>Statistics checked two ways</strong> — model named in advance; tau-squared, I-squared and prediction intervals reported; poolability judged per outcome; unpoolable outcomes reported as findings, not rescued by redefinition.</li>
+<li><strong>GRADE per critical outcome</strong> — Summary of Findings table before the Background, downgrade reasons stated.</li>
+<li><strong>Manuscript in Cochrane order</strong> — PRISMA 2020 / PRISMA-S, plain-language summary, claims in the same paragraph as their numbers, no clinical recommendation, factual AI-assistance note.</li>
+<li><strong>Figures built and inspected</strong> — summary diamonds on every forest plot, page-fit checked, every figure/table page visually inspected and logged before shipping.</li>
+<li><strong>Disclosure of the team itself</strong> — roles, prompts version, kappa, disagreement counts, discrepancy rates and every post-build correction reported as results (RAISE 2025 style).</li>
+<li><strong>Honesty rules</strong> — no invented number, count, date or citation; a source not run is never reported as searched; paywalled texts logged as not retrieved, no workarounds; incidents kept visible.</li>
+</ol>
+<p>The full standard is in <a href="ROBUST_STANDARD_V2.md"><code>ROBUST_STANDARD_V2.md</code></a>.</p>
+<h2 id="worked-examples-three-published-reviews">Worked examples — three published reviews</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Review</th>
+<th>Headline finding</th>
+<th>Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Ambient AI scribes for clinical documentation (74 studies)</td>
+<td>Documentation time −18.9%, and 59.8% of audited notes had ≥1 error</td>
+<td><a href="https://doi.org/10.5281/zenodo.23565499">Zenodo 10.5281/zenodo.23565499</a> · <a href="https://github.com/rtmalikian/ambient-ai-scribes-meta-analysis-clinical-documentation-burnout-note-errors">GitHub</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Fabricated citations in LLM-generated biomedical references (63 studies, 22,461 references)</td>
+<td>19.4% completely fabricated, 37.0% fully accurate; retrieval on 5.8% vs off 31.0%</td>
+<td><a href="https://doi.org/10.5281/zenodo.23585717">Zenodo 10.5281/zenodo.23585717</a> · <a href="https://github.com/rtmalikian/llm-citation-fabrication-meta-analysis-biomedical-references-hallucinated-citations">GitHub</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Clinically significant errors in LLM clinical summaries (11 studies)</td>
+<td>60.6% of summaries had ≥1 error of any type; only 1/11 studies reported clinically significant errors per summary (21.0%)</td>
+<td><a href="https://doi.org/10.5281/zenodo.23847500">Zenodo 10.5281/zenodo.23847500</a> · <a href="https://github.com/rtmalikian/llm-clinical-summarization-errors-meta-analysis">GitHub</a> · <a href="https://rtmalikian.github.io/llm-clinical-summarization-errors-meta-analysis/">Reading page</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hub for all three:</strong> https://rtmalikian.github.io/systematic-reviews/</p>
+<p>Full details in <a href="examples/WORKED_EXAMPLES.md"><code>examples/WORKED_EXAMPLES.md</code></a>.</p>
+<h2 id="repository-map">Repository map</h2>
+<p><code>EXAMPLE_MULTI_STEP_PROMPT.md   The copy-paste 12-step prompt — start here
+ROBUST_STANDARD_V2.md          The full standard (v2, 22 Oct 2026)
+prompts/                       One file per stage, for hand-coordinated sessions
+templates/                     Protocol, extraction, RoB, team-log, checklist forms
+examples/WORKED_EXAMPLES.md    What the three published reviews teach about the process
+docs/                          GitHub Pages landing page for this process
+CITATION.cff                   Cite this process
+LICENSE.md                     Attribution — Non-Commercial licence (read it)</code></p>
+<h2 id="licence-acknowledgement-required-non-profit-free-commercial-by-licence">Licence — acknowledgement required, non-profit free, commercial by licence</h2>
+<p>This process is <strong>free for non-profit, academic, personal and other non-commercial use — with acknowledgement</strong>:</p>
+<blockquote>
+<p>Malikian R. Multi-Agent Cochrane-Level Review Process (Robust Standard v2). 2026. https://github.com/rtmalikian/multi-agent-cochrane-level-review-process</p>
+</blockquote>
+<p><strong>Commercial use requires a licence.</strong> If you want to use this process inside a company, in a paid product or service, in paid training, or in consultancy deliverables, email <strong>rtmalikian@gmail.com</strong> first.</p>
+<p>Full terms: <a href="LICENSE.md"><code>LICENSE.md</code></a>. Note: the three reviews themselves are CC BY 4.0 — this licence covers the <em>process</em>, prompts and templates in this repository.</p>
+<h2 id="how-to-cite">How to cite</h2>
+<p>Malikian R. Multi-Agent Cochrane-Level Review Process (Robust Standard v2): a multi-agent LLM-team method for Cochrane-level systematic reviews and meta-analyses, with an example multi-step prompt. 2026. GitHub: https://github.com/rtmalikian/multi-agent-cochrane-level-review-process</p>
+<h2 id="corrections-and-questions">Corrections and questions</h2>
+<p>Open an issue. Corrections to the process are versioned and logged, never silently overwritten — that is Rule 12 applied to this repository itself.</p>
+</article>
+<aside>
+<div class="box dl">
+<h3>Download</h3>
+<a class="btn" href="https://github.com/rtmalikian/multi-agent-cochrane-level-review-process">View full text on GitHub</a>
+<a class="btn alt" href="https://github.com/rtmalikian/multi-agent-cochrane-level-review-process/blob/main/ROBUST_STANDARD_V2.md">Robust Standard v2 (ROBUST_STANDARD_V2.md)</a><a class="btn alt" href="https://github.com/rtmalikian/multi-agent-cochrane-level-review-process/blob/main/EXAMPLE_MULTI_STEP_PROMPT.md">12-step example prompt</a><a class="btn alt" href="https://raw.githubusercontent.com/rtmalikian/multi-agent-cochrane-level-review-process/main/README.md">Markdown source (README)</a>
+<p>One click — no sign-up, no paywall.</p>
+</div>
+<div class="box" id="cite">
+<h3>Cite this article</h3>
+<p>Malikian R. Multi-Agent Cochrane-Level Review Process (Robust Standard v2). Version 1.0.0; 2026. Available at: https://rtmalikian.github.io/multi-agent-cochrane-level-review-process/</p>
+<p><strong>BibTeX</strong> <button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('bib').innerText)">Copy</button></p>
+<pre id="bib">@misc{malikian2026cochraneprocess,
+  author       = {Malikian, Raphael},
+  title        = {Multi-Agent Cochrane-Level Review Process (Robust Standard v2)},
+  year         = {2026},
+  publisher    = {Zenodo},
+  url          = {https://rtmalikian.github.io/multi-agent-cochrane-level-review-process/},
+  note         = {Multi-agent Cochrane-level review process, Robust Standard v2}
+}</pre>
+<p><strong>RIS</strong> <button class="copy" onclick="navigator.clipboard.writeText(document.getElementById('ris').innerText)">Copy</button></p>
+<pre id="ris">TY  - GEN
+AU  - Malikian, Raphael
+TI  - Multi-Agent Cochrane-Level Review Process (Robust Standard v2)
+PY  - 2026
+UR  - https://rtmalikian.github.io/multi-agent-cochrane-level-review-process/
+ER  -</pre>
+</div>
+<div class="box">
+<h3>Article information</h3>
+<p>Released: 1 November 2026 (Version 1.0.0, per CITATION.cff). No DOI has been issued for this work; none is claimed.</p><p>Funding: none. Conflicts of interest: none.</p><p>Correspondence: Raphael Malikian, <a href="mailto:rtmalikian@gmail.com">rtmalikian@gmail.com</a>, Palmdale, CA, USA. ORCID <a href="https://orcid.org/0009-0008-4326-4205">0009-0008-4326-4205</a>.</p><p>These are Cochrane-level reviews. They are not Cochrane reviews and are not submitted to Cochrane.</p>
+</div>
+<div class="box">
+<h3>Contents</h3>
+<ul class="contents"><li><a href="#abstract">Abstract</a></li><li><a href="#what-this-is">What this is</a></li><li><a href="#agreement-and-adjudication-reported-not-just-promised">Agreement and adjudication — reported, not just promised</a></li><li><a href="#start-here-the-prompt">Start here — the prompt</a></li><li><a href="#the-team">The team</a></li><li><a href="#the-robust-standard-v2-12-non-negotiables">The Robust Standard v2 — 12 non-negotiables</a></li><li><a href="#worked-examples-three-published-reviews">Worked examples — three published reviews</a></li><li><a href="#repository-map">Repository map</a></li><li><a href="#licence-acknowledgement-required-non-profit-free-commercial-by-licence">Licence — acknowledgement required, non-profit free, commercial by licence</a></li><li><a href="#how-to-cite">How to cite</a></li><li><a href="#corrections-and-questions">Corrections and questions</a></li></ul>
+</div>
+<div class="box">
+<h3>Keywords</h3>
+<ul><li>systematic review</li><li>meta-analysis</li><li>cochrane</li><li>multi-agent</li><li>llm</li><li>evidence synthesis</li><li>prisma</li><li>grade</li></ul>
+</div>
+<div class="box">
+<h3>Links</h3>
+<ul>
+<li><a href="https://github.com/rtmalikian/multi-agent-cochrane-level-review-process">GitHub repository</a></li>
+
+<li><a href="https://rtmalikian.github.io/systematic-reviews/">Systematic reviews hub</a></li>
+<li><a href="https://orcid.org/0009-0008-4326-4205">ORCID</a></li>
+</ul>
+</div>
+</aside>
+</div>
+<footer>
+<p>This is an open access article distributed under the terms of the Malikian Attribution — Non-Commercial Licence v1.0, which permits use, distribution, and reproduction in any medium, provided the original author and source are credited.</p>
+<p>© 2026 Raphael Malikian. Available at: <a href="https://rtmalikian.github.io/multi-agent-cochrane-level-review-process/">https://rtmalikian.github.io/multi-agent-cochrane-level-review-process/</a></p>
+<p class="seriesline">Methods Papers — Raphael Malikian · Cochrane-Level Evidence Syntheses</p>
+</footer>
+</div>
+</body>
+</html>
